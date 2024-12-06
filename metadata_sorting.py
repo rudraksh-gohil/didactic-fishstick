@@ -1,14 +1,15 @@
 import json
 from collections import defaultdict
 
-# Function to organize apps by platform, software type, and requirement type, including subdomains
+# Function to organize apps by platform, software type, requirement type, region, and subdomain
 def organize_apps(data):
-    # Defaultdict for platforms and software types
+    # Defaultdict for platforms, software types, and regions
     organized_data = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: defaultdict(list))))
 
     for subdomain in data.get("Subdomains", []):
         subdomain_name = subdomain.get("Subdomain Name", "Unknown Subdomain")
         for region in subdomain.get("Regions", []):
+            region_name = region.get("Region", "Unknown Region")
             for app in region.get("Apps", []):
                 app_name = app["name"]
 
@@ -17,17 +18,25 @@ def organize_apps(data):
                 for platform, layers in functional_requirements.items():
                     for layer, features in layers.items():
                         for feature in features:
-                            # Ensure the feature already exists or create it
-                            feature_exists = False
+                            # Initialize FR list if it doesn't exist
+                            if "FR" not in organized_data[subdomain_name][platform][layer]:
+                                organized_data[subdomain_name][platform][layer]["FR"] = []
+
+                            # Check if feature already exists, otherwise create a new entry
+                            feature_found = False
                             for item in organized_data[subdomain_name][platform][layer]["FR"]:
                                 if item["Feature"] == feature:
-                                    item["apps"].append(app_name)
-                                    feature_exists = True
+                                    # Add the app to the corresponding region list
+                                    if region_name not in item["apps"]:
+                                        item["apps"][region_name] = []
+                                    item["apps"][region_name].append(app_name)
+                                    feature_found = True
                                     break
-                            if not feature_exists:
+                            if not feature_found:
+                                # If feature does not exist, create a new one
                                 organized_data[subdomain_name][platform][layer]["FR"].append({
                                     "Feature": feature,
-                                    "apps": [app_name]
+                                    "apps": {region_name: [app_name]}
                                 })
 
                 # Handle Non-Functional Requirements (NFR)
@@ -35,17 +44,25 @@ def organize_apps(data):
                 for platform, layers in non_functional_requirements.items():
                     for layer, features in layers.items():
                         for feature in features:
-                            # Ensure the feature already exists or create it
-                            feature_exists = False
+                            # Initialize NFR list if it doesn't exist
+                            if "NFR" not in organized_data[subdomain_name][platform][layer]:
+                                organized_data[subdomain_name][platform][layer]["NFR"] = []
+
+                            # Check if feature already exists, otherwise create a new entry
+                            feature_found = False
                             for item in organized_data[subdomain_name][platform][layer]["NFR"]:
                                 if item["Feature"] == feature:
-                                    item["apps"].append(app_name)
-                                    feature_exists = True
+                                    # Add the app to the corresponding region list
+                                    if region_name not in item["apps"]:
+                                        item["apps"][region_name] = []
+                                    item["apps"][region_name].append(app_name)
+                                    feature_found = True
                                     break
-                            if not feature_exists:
+                            if not feature_found:
+                                # If feature does not exist, create a new one
                                 organized_data[subdomain_name][platform][layer]["NFR"].append({
                                     "Feature": feature,
-                                    "apps": [app_name]
+                                    "apps": {region_name: [app_name]}
                                 })
 
     # Convert to a regular dictionary for saving to JSON
@@ -70,7 +87,7 @@ def load_organized_data(filename="organized_data.json"):
 # Main execution
 if __name__ == "__main__":
     # Load input data
-    input_file = "metaapp_data.json"  # Ensure this file exists in the same directory
+    input_file = "appdata.json"  # Ensure this file exists in the same directory
     json_data = load_input_file(input_file)
 
     # Organize and save data
@@ -87,5 +104,8 @@ if __name__ == "__main__":
                 print(f"    Software Type: {software_type}")
                 for req_type, features in req_types.items():
                     print(f"      {req_type}:")
-                    for feature in features:
-                        print(f"        - {feature['Feature']}: {feature['apps']}")
+                    if isinstance(features, list):
+                        for feature in features:
+                            print(f"        - {feature['Feature']}: {feature['apps']}")
+                    else:
+                        print(f"        {req_type} is not in expected format!")
