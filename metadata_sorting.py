@@ -30,14 +30,24 @@ def organize_apps(data):
                                     if region_name not in item["apps"]:
                                         item["apps"][region_name] = []
                                     item["apps"][region_name].append(app_name)
+                                    # Add acceptance criteria and bugs if available
+                                    if "acceptance_criteria" in app:
+                                        item["acceptance_criteria"] = app["acceptance_criteria"]
+                                    if "common_bugs" in app:
+                                        item["common_bugs"] = app["common_bugs"]
                                     feature_found = True
                                     break
                             if not feature_found:
                                 # If feature does not exist, create a new one
-                                organized_data[subdomain_name][platform][layer]["FR"].append({
+                                new_feature = {
                                     "Feature": feature,
-                                    "apps": {region_name: [app_name]}
-                                })
+                                    "apps": {region_name: [app_name]},
+                                }
+                                if "acceptance_criteria" in app:
+                                    new_feature["acceptance_criteria"] = app["acceptance_criteria"]
+                                if "common_bugs" in app:
+                                    new_feature["common_bugs"] = app["common_bugs"]
+                                organized_data[subdomain_name][platform][layer]["FR"].append(new_feature)
 
                 # Handle Non-Functional Requirements (NFR)
                 non_functional_requirements = app.get("non_functional_requirements", {})
@@ -56,14 +66,24 @@ def organize_apps(data):
                                     if region_name not in item["apps"]:
                                         item["apps"][region_name] = []
                                     item["apps"][region_name].append(app_name)
+                                    # Add acceptance criteria and bugs if available
+                                    if "acceptance_criteria" in app:
+                                        item["acceptance_criteria"] = app["acceptance_criteria"]
+                                    if "common_bugs" in app:
+                                        item["common_bugs"] = app["common_bugs"]
                                     feature_found = True
                                     break
                             if not feature_found:
                                 # If feature does not exist, create a new one
-                                organized_data[subdomain_name][platform][layer]["NFR"].append({
+                                new_feature = {
                                     "Feature": feature,
-                                    "apps": {region_name: [app_name]}
-                                })
+                                    "apps": {region_name: [app_name]},
+                                }
+                                if "acceptance_criteria" in app:
+                                    new_feature["acceptance_criteria"] = app["acceptance_criteria"]
+                                if "common_bugs" in app:
+                                    new_feature["common_bugs"] = app["common_bugs"]
+                                organized_data[subdomain_name][platform][layer]["NFR"].append(new_feature)
 
     # Convert to a regular dictionary for saving to JSON
     return json.loads(json.dumps(organized_data))
@@ -107,5 +127,10 @@ if __name__ == "__main__":
                     if isinstance(features, list):
                         for feature in features:
                             print(f"        - {feature['Feature']}: {feature['apps']}")
+                            # Print acceptance criteria and common bugs if available
+                            if "acceptance_criteria" in feature:
+                                print(f"          Acceptance Criteria: {feature['acceptance_criteria']}")
+                            if "common_bugs" in feature:
+                                print(f"          Common Bugs: {feature['common_bugs']}")
                     else:
                         print(f"        {req_type} is not in expected format!")
