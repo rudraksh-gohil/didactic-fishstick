@@ -1,5 +1,5 @@
 {
-  "_id": {"$oid": "675147319e290eced3a9726f"},
+  "_id": { "$oid": "67518821bee43d221a9e144a" },
   "Domain": "Healthcare",
   "Subdomains": [
     {
@@ -19,50 +19,392 @@
                       "Requirements": {
                         "Functional": [
                           {
-                            "Feature Name": ["Appointment Booking", "Video Consultation", "Prescription Management"],
+                            "Feature Name": [
+                              "Appointment Booking",
+                              "Video Consultation"
+                            ],
                             "User Stories": [
                               {
                                 "Quality": "high",
-                                "User Story": "As a patient, I want to book an appointment with a doctor so that I can receive timely care.",
-                                "Acceptance Criteria": ["Appointments can be scheduled without errors", "User receives confirmation notifications"],
-                                "Common Bugs": ["Appointment booking fails intermittently", "Notifications not sent on time"]
+                                "User Story": "As a patient, I want to schedule an appointment with an automatic video link to reduce errors and save time.",
+                                "Acceptance Criteria": [
+                                  "Appointment is confirmed within 5 seconds.",
+                                  "Video link is auto-generated and sent via email/SMS.",
+                                  "Appointment reminder is sent 24 hours prior."
+                                ],
+                                "Common Bugs": [
+                                  "Video link generation fails.",
+                                  "Notification delay in SMS.",
+                                  "Appointment confirmation fails."
+                                ]
                               },
                               {
                                 "Quality": "average",
-                                "User Story": "As a patient, I want to be able to easily find available doctors so that I can make quick appointments.",
-                                "Acceptance Criteria": ["User can find doctors available for appointments", "Search results are accurate"],
-                                "Common Bugs": ["Search results sometimes show unavailable doctors", "Appointments not appearing for selected times"]
+                                "User Story": "As a patient, I want an email confirmation after booking a video consultation to ensure my appointment is secured.",
+                                "Acceptance Criteria": [
+                                  "Email confirmation is sent immediately after booking.",
+                                  "Appointment details are accurate in the email.",
+                                  "Confirmation email is received within 2 minutes."
+                                ],
+                                "Common Bugs": [
+                                  "Email not sent.",
+                                  "Appointment details missing.",
+                                  "Email goes to spam folder."
+                                ]
                               },
                               {
                                 "Quality": "low",
-                                "User Story": "As a patient, I want a simple way to manage my appointments.",
-                                "Acceptance Criteria": ["Appointments can be managed easily", "Users can cancel or reschedule"],
-                                "Common Bugs": ["Difficult to navigate appointment options", "App crashes while managing appointments"]
+                                "User Story": "As a patient, I want to see basic appointment booking details like time and doctor name.",
+                                "Acceptance Criteria": [
+                                  "Time and doctor name are displayed on booking confirmation.",
+                                  "Booking details can be shared via SMS or email.",
+                                  "Patient can cancel appointment from confirmation screen."
+                                ],
+                                "Common Bugs": [
+                                  "Incorrect time displayed.",
+                                  "Doctor name not listed.",
+                                  "Confirmation screen crashes."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Doctor Search",
+                              "Health Record Tracking"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a patient, I want personalized doctor recommendations based on my recent health records to find a relevant specialist easily.",
+                                "Acceptance Criteria": [
+                                  "Health records influence search results accurately.",
+                                  "Recommendations prioritize doctors with relevant expertise.",
+                                  "Doctor recommendations are shown in priority order based on patient health data."
+                                ],
+                                "Common Bugs": [
+                                  "Irrelevant doctor recommendations.",
+                                  "Search results show incorrect specialties.",
+                                  "Personalized recommendations not updating."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a patient, I want to filter doctors by specialty and availability to narrow down my search quickly.",
+                                "Acceptance Criteria": [
+                                  "Filters for specialty and availability are visible and functional.",
+                                  "Filtered results are displayed instantly.",
+                                  "Filter settings are saved for repeated searches."
+                                ],
+                                "Common Bugs": [
+                                  "Filters fail to apply correctly.",
+                                  "Filtered results take too long to load.",
+                                  "Filter settings reset unexpectedly."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a patient, I want a search bar to look up doctors by name.",
+                                "Acceptance Criteria": [
+                                  "Search bar supports name-based queries.",
+                                  "Search results return relevant doctors."
+                                ],
+                                "Common Bugs": [
+                                  "Search returns no results for valid queries.",
+                                  "Doctor names misspelled in results.",
+                                  "Search fails to work after app update."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Payment Gateway",
+                              "Appointment Booking"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a patient, I want an integrated payment system to book and pay for my appointment in a single step.",
+                                "Acceptance Criteria": [
+                                  "Payment gateway is directly linked to booking flow.",
+                                  "Successful payment confirms the appointment automatically.",
+                                  "Payment process is completed within 10 seconds."
+                                ],
+                                "Common Bugs": [
+                                  "Payment fails during booking.",
+                                  "Payment gateway is not loading.",
+                                  "Booking confirmation does not appear after payment."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a patient, I want to view my payment history linked to appointments for easy reference.",
+                                "Acceptance Criteria": [
+                                  "Payment history shows all previous transactions.",
+                                  "Transactions are correctly linked to booked appointments.",
+                                  "Payment status (successful/failed) is shown next to each transaction."
+                                ],
+                                "Common Bugs": [
+                                  "Transactions missing in history.",
+                                  "Transaction statuses show incorrect info.",
+                                  "Payment history takes too long to load."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a patient, I want to know if my payment is successful right after completing the transaction.",
+                                "Acceptance Criteria": [
+                                  "Transaction status is displayed post-payment.",
+                                  "Confirmation screen appears within 5 seconds."
+                                ],
+                                "Common Bugs": [
+                                  "Incorrect payment status displayed.",
+                                  "Delayed transaction confirmation.",
+                                  "Error message shows after successful payment."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Video Consultation",
+                              "Health Record Tracking"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a doctor, I want to access a patient’s shared health records during a video consultation for better diagnosis.",
+                                "Acceptance Criteria": [
+                                  "Shared records are visible in real-time during consultations.",
+                                  "Records can be expanded for detailed viewing.",
+                                  "Health data updates instantly for accurate information."
+                                ],
+                                "Common Bugs": [
+                                  "Shared records fail to display.",
+                                  "Health data is outdated.",
+                                  "Real-time update fails."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a doctor, I want to mark specific health records as important during video consultations for follow-up actions.",
+                                "Acceptance Criteria": [
+                                  "Doctors can mark records with a single click.",
+                                  "Marked records are highlighted in the system.",
+                                  "Marked records appear in the patient’s health history."
+                                ],
+                                "Common Bugs": [
+                                  "Marked records are not saved.",
+                                  "Highlighting fails in real-time.",
+                                  "Doctor's marks disappear after refresh."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a patient, I want to share one health record manually during a consultation for quick doctor review.",
+                                "Acceptance Criteria": [
+                                  "Users can upload and share one record mid-consultation.",
+                                  "Record upload does not interrupt the video call."
+                                ],
+                                "Common Bugs": [
+                                  "File upload fails.",
+                                  "Video call freezes when uploading a record.",
+                                  "Patient cannot upload record during active consultation."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Appointment Booking",
+                              "Doctor Search",
+                              "Payment Gateway"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a patient, I want to search for doctors, book an appointment, and pay in one seamless flow to save time.",
+                                "Acceptance Criteria": [
+                                  "Search results allow direct appointment booking.",
+                                  "Integrated payment gateway completes booking confirmation.",
+                                  "Patient receives a confirmation with all details after booking."
+                                ],
+                                "Common Bugs": [
+                                  "Flow breaks between steps.",
+                                  "Payment gateway shows error after search.",
+                                  "Confirmation email not sent after booking."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a patient, I want to view available time slots for doctors during the search to book appointments instantly.",
+                                "Acceptance Criteria": [
+                                  "Available time slots are displayed with search results.",
+                                  "Slot selection leads directly to booking.",
+                                  "Time slots are shown in the correct timezone."
+                                ],
+                                "Common Bugs": [
+                                  "Slots fail to load for some doctors.",
+                                  "Incorrect timezone shown for appointment slots.",
+                                  "Slots are shown as unavailable when they are actually free."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a patient, I want to see a payment receipt after completing a booking and payment.",
+                                "Acceptance Criteria": [
+                                  "Receipt is generated immediately after payment.",
+                                  "Receipt contains all relevant transaction details."
+                                ],
+                                "Common Bugs": [
+                                  "Receipt fails to generate.",
+                                  "Receipt information is missing or incomplete.",
+                                  "Receipt is sent to wrong email address."
+                                ]
                               }
                             ]
                           }
                         ],
                         "Non-Functional": [
                           {
-                            "Feature Name": ["App Load Time", "UI Responsiveness"],
+                            "Feature Name": [
+                              "App Load",
+                              "Smooth UI"
+                            ],
                             "User Stories": [
                               {
                                 "Quality": "high",
-                                "User Story": "As a user, I want the app to load in under 2 seconds so that I can start using it quickly.",
-                                "Acceptance Criteria": ["App loads within 2 seconds on all devices"],
-                                "Common Bugs": ["App load times exceed 2 seconds on older devices"]
+                                "User Story": "As a user, I expect the app to load in under 2 seconds for a seamless experience.",
+                                "Acceptance Criteria": [
+                                  "App loads within 2 seconds consistently across different devices.",
+                                  "No visible delay in content rendering or screen transitions."
+                                ],
+                                "Common Bugs": [
+                                  "App loading takes longer than 2 seconds.",
+                                  "White screen appears during app load.",
+                                  "App freezes during startup."
+                                ]
                               },
                               {
                                 "Quality": "average",
-                                "User Story": "As a user, I want the UI to respond smoothly to my actions.",
-                                "Acceptance Criteria": ["UI responds to touch interactions without noticeable lag"],
-                                "Common Bugs": ["UI is slow to respond during heavy use"]
+                                "User Story": "As a user, I expect the app's user interface to remain smooth without noticeable lag during navigation.",
+                                "Acceptance Criteria": [
+                                  "Navigating between screens should feel smooth with no stuttering.",
+                                  "UI elements (buttons, text, images) should respond immediately to touch."
+                                ],
+                                "Common Bugs": [
+                                  "Screen transitions lag.",
+                                  "UI buttons delay on press.",
+                                  "Animation freezes intermittently."
+                                ]
                               },
                               {
                                 "Quality": "low",
-                                "User Story": "As a user, I want quick loading times to avoid waiting.",
-                                "Acceptance Criteria": ["App loads without significant delay"],
-                                "Common Bugs": ["App freezes during loading"]
+                                "User Story": "As a user, I expect a smooth and non-distracting user interface when using the app.",
+                                "Acceptance Criteria": [
+                                  "UI is clean with no jitter during animations.",
+                                  "No flickering or lagging during interactions."
+                                ],
+                                "Common Bugs": [
+                                  "UI elements jump during scrolling.",
+                                  "Animations stutter or pause unexpectedly.",
+                                  "Text overlaps in some areas of the UI."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Intuitive Design",
+                              "Responsive Design"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I expect the app design to be intuitive and easy to use, even for first-time users.",
+                                "Acceptance Criteria": [
+                                  "All main features are easily discoverable within 2 taps.",
+                                  "User can understand app navigation without any tutorial.",
+                                  "Visual cues guide users through main actions."
+                                ],
+                                "Common Bugs": [
+                                  "Menu items are hard to find.",
+                                  "New users are confused by the layout.",
+                                  "Unclear navigation paths."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I expect the app to adapt to different screen sizes and orientations, providing an optimal layout.",
+                                "Acceptance Criteria": [
+                                  "UI elements resize appropriately on smaller screens.",
+                                  "App supports both portrait and landscape modes seamlessly."
+                                ],
+                                "Common Bugs": [
+                                  "Content is misaligned on smaller devices.",
+                                  "Landscape mode displays incorrectly on tablets.",
+                                  "Images break or stretch in certain resolutions."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to be able to access all app features regardless of device type or screen size.",
+                                "Acceptance Criteria": [
+                                  "App's layout should not overflow on small screens.",
+                                  "Buttons should not be cropped or distorted on different screen sizes."
+                                ],
+                                "Common Bugs": [
+                                  "Buttons are cut off on smaller screens.",
+                                  "Text is not readable on large screens.",
+                                  "UI does not scale properly on tablets."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Touch Gestures"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want the app to respond quickly and accurately to touch gestures, ensuring a smooth experience.",
+                                "Acceptance Criteria": [
+                                  "All touch gestures, such as swipe, pinch, and tap, should work within 0.5 seconds.",
+                                  "Gestures should trigger the expected response without delay."
+                                ],
+                                "Common Bugs": [
+                                  "Swipes are not recognized or delayed.",
+                                  "Pinch-to-zoom fails to respond.",
+                                  "Buttons do not register taps consistently."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I expect the app to have a consistent touch gesture response across different sections of the app.",
+                                "Acceptance Criteria": [
+                                  "Swiping, tapping, and scrolling should feel responsive throughout the app.",
+                                  "All interactive elements must respond to touch gestures."
+                                ],
+                                "Common Bugs": [
+                                  "Touch gestures feel inconsistent between pages.",
+                                  "Gestures don't work in certain sections of the app.",
+                                  "Touch response is slow after app update."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to be able to use basic touch gestures like swipe to navigate between screens.",
+                                "Acceptance Criteria": [
+                                  "Swiping between screens should transition smoothly.",
+                                  "Basic gestures should not require multiple attempts."
+                                ],
+                                "Common Bugs": [
+                                  "Swiping gestures do not trigger screen transitions.",
+                                  "Multiple attempts needed for gestures to register.",
+                                  "Gesture-related crashes when interacting with UI."
+                                ]
                               }
                             ]
                           }
@@ -74,50 +416,188 @@
                       "Requirements": {
                         "Functional": [
                           {
-                            "Feature Name": ["Real-Time Sync", "Scheduling Integration", "Secure Authentication"],
+                            "Feature Name": [
+                              "Real-Time Sync",
+                              "Scheduling Integration",
+                              "Secure Authentication"
+                            ],
                             "User Stories": [
                               {
                                 "Quality": "high",
                                 "User Story": "As a patient, I want my appointments and health data to sync in real-time so that I can get updated information.",
-                                "Acceptance Criteria": ["Sync works seamlessly in real-time", "No delay in showing appointment updates"],
-                                "Common Bugs": ["Real-time sync fails intermittently", "Data lag during heavy traffic"]
+                                "Acceptance Criteria": [
+                                  "Sync works seamlessly in real-time",
+                                  "No delay in showing appointment updates"
+                                ],
+                                "Common Bugs": [
+                                  "Real-time sync fails intermittently",
+                                  "Data lag during heavy traffic"
+                                ]
                               },
                               {
                                 "Quality": "average",
                                 "User Story": "As a patient, I want my data to update as soon as changes are made so that I always have the latest information.",
-                                "Acceptance Criteria": ["Data sync happens promptly", "Changes are reflected in real-time"],
-                                "Common Bugs": ["Sync delays on heavy load", "Minor inconsistencies between devices"]
+                                "Acceptance Criteria": [
+                                  "Data sync happens promptly",
+                                  "Changes are reflected in real-time"
+                                ],
+                                "Common Bugs": [
+                                  "Sync delays on heavy load",
+                                  "Minor inconsistencies between devices"
+                                ]
                               },
                               {
                                 "Quality": "low",
                                 "User Story": "As a patient, I expect updates to my data without delay.",
-                                "Acceptance Criteria": ["Data updates occur with minimal delay"],
-                                "Common Bugs": ["Sync fails during peak times"]
+                                "Acceptance Criteria": [
+                                  "Data updates occur with minimal delay"
+                                ],
+                                "Common Bugs": [
+                                  "Sync fails during peak times"
+                                ]
                               }
                             ]
                           }
                         ],
                         "Non-Functional": [
                           {
-                            "Feature Name": ["Scalability", "Data Encryption"],
+                            "Feature Name": [
+                              "Scalability",
+                              "Performance"
+                            ],
                             "User Stories": [
                               {
                                 "Quality": "high",
-                                "User Story": "As a user, I want the system to handle a large number of requests without degrading performance.",
-                                "Acceptance Criteria": ["System should scale without significant performance loss"],
-                                "Common Bugs": ["Server overload during peak traffic", "Slow performance when syncing large data sets"]
+                                "User Story": "As an administrator, I want the backend to dynamically scale to handle millions of concurrent users during peak hours without performance degradation.",
+                                "Acceptance Criteria": [
+                                  "System scales up automatically during high traffic, maintaining API response time under 500ms.",
+                                  "Load balancing distributes traffic effectively across servers."
+                                ],
+                                "Common Bugs": [
+                                  "Autoscaling fails during traffic spikes, causing server crashes.",
+                                  "Inefficient load balancing leads to uneven server loads.",
+                                  "Database bottlenecks during high concurrency."
+                                ]
                               },
                               {
                                 "Quality": "average",
-                                "User Story": "As a user, I want the system to handle a moderate load with no performance issues.",
-                                "Acceptance Criteria": ["Moderate load results in acceptable performance"],
-                                "Common Bugs": ["Performance lag on medium-load days"]
+                                "User Story": "As an administrator, I want the backend to maintain consistent response times under moderate load (e.g., 1,000 concurrent users).",
+                                "Acceptance Criteria": [
+                                  "Response time does not exceed 1 second under moderate load.",
+                                  "Logs track performance metrics for each request."
+                                ],
+                                "Common Bugs": [
+                                  "Response times exceed acceptable limits during moderate loads.",
+                                  "Logs fail to capture detailed performance metrics.",
+                                  "Caching mechanisms do not function correctly."
+                                ]
                               },
                               {
                                 "Quality": "low",
-                                "User Story": "As a user, I expect the system to work well during high traffic.",
-                                "Acceptance Criteria": ["System maintains basic functionality under load"],
-                                "Common Bugs": ["Server crashes under heavy usage"]
+                                "User Story": "As an administrator, I want the backend to notify me when server capacity exceeds 80% usage.",
+                                "Acceptance Criteria": [
+                                  "Alerts are triggered when server utilization exceeds the threshold.",
+                                  "Notifications include details of affected components."
+                                ],
+                                "Common Bugs": [
+                                  "No notifications are sent during server overload.",
+                                  "Alerts provide incomplete or inaccurate details.",
+                                  "Delayed alerts cause late interventions."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Data Security",
+                              "Availability"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want my personal health data to be encrypted during storage and transmission to prevent unauthorized access.",
+                                "Acceptance Criteria": [
+                                  "Data at rest is encrypted with AES-256.",
+                                  "Data in transit uses TLS 1.3 for secure communication."
+                                ],
+                                "Common Bugs": [
+                                  "Encryption keys are not securely managed, leading to vulnerabilities.",
+                                  "Data transmission occurs without encryption due to configuration errors.",
+                                  "Decryption errors cause data corruption."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want the backend to comply with HIPAA regulations to ensure my data is handled securely and ethically.",
+                                "Acceptance Criteria": [
+                                  "System audits verify compliance with HIPAA standards.",
+                                  "Access logs include timestamps and user roles."
+                                ],
+                                "Common Bugs": [
+                                  "Non-compliance with HIPAA during external audits.",
+                                  "Access logs fail to capture all user activities.",
+                                  "Security breaches occur due to weak role-based access controls."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to receive notifications if my data is accessed in an unauthorized manner.",
+                                "Acceptance Criteria": [
+                                  "Users are notified within 24 hours of unauthorized access.",
+                                  "Notifications include details of the breach and corrective actions."
+                                ],
+                                "Common Bugs": [
+                                  "Delayed notifications of data breaches.",
+                                  "Notification details are vague or incomplete.",
+                                  "False positives lead to unnecessary alerts."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Availability",
+                              "Reliability"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As an administrator, I want the backend to achieve 99.99% uptime, ensuring continuous access to critical services.",
+                                "Acceptance Criteria": [
+                                  "Scheduled downtimes are limited to maintenance windows.",
+                                  "Failover mechanisms activate automatically during server failures."
+                                ],
+                                "Common Bugs": [
+                                  "Failover mechanisms fail to activate during outages.",
+                                  "Scheduled maintenance exceeds allocated downtime.",
+                                  "High latency during failover transitions."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As an administrator, I want the backend to retry failed requests up to three times before logging the error.",
+                                "Acceptance Criteria": [
+                                  "Failed requests are retried with exponential backoff.",
+                                  "Errors are logged after three failed retries."
+                                ],
+                                "Common Bugs": [
+                                  "Retry mechanism fails for intermittent network issues.",
+                                  "Logs do not capture retry attempts adequately.",
+                                  "Exponential backoff is not implemented correctly."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As an administrator, I want detailed downtime reports to analyze and address recurring availability issues.",
+                                "Acceptance Criteria": [
+                                  "Downtime reports include root cause analysis and affected users.",
+                                  "Reports are generated within 24 hours of downtime."
+                                ],
+                                "Common Bugs": [
+                                  "Reports fail to include complete downtime details.",
+                                  "Root cause analysis lacks actionable insights.",
+                                  "Downtime reports are delayed or incomplete."
+                                ]
                               }
                             ]
                           }
@@ -129,50 +609,225 @@
                       "Requirements": {
                         "Functional": [
                           {
-                            "Feature Name": ["Push Notifications", "Real-Time Updates"],
+                            "Feature Name": [
+                              "Video Streaming",
+                              "Push Notifications"
+                            ],
                             "User Stories": [
                               {
                                 "Quality": "high",
-                                "User Story": "As a user, I want to receive push notifications about my appointments so that I stay informed.",
-                                "Acceptance Criteria": ["Push notifications work correctly", "Notifications sent on time"],
-                                "Common Bugs": ["Push notifications not sent", "Delayed notifications"]
+                                "User Story": "As a user, I want seamless, real-time video consultations with automatic notification reminders for upcoming sessions.",
+                                "Acceptance Criteria": [
+                                  "Video streams must have <1s latency.",
+                                  "Notifications arrive 5 minutes before scheduled sessions."
+                                ],
+                                "Common Bugs": [
+                                  "Video streaming lags during high network traffic.",
+                                  "Push notifications fail to deliver on time.",
+                                  "Session reminders are sent multiple times."
+                                ]
                               },
                               {
                                 "Quality": "average",
-                                "User Story": "As a user, I want notifications to be sent when there are updates to my schedule.",
-                                "Acceptance Criteria": ["Notifications are sent for schedule changes", "User receives timely updates"],
-                                "Common Bugs": ["Occasional notification delays", "Failed push notification for rescheduled appointments"]
+                                "User Story": "As a user, I want video streaming sessions to auto-resume after minor interruptions and receive fallback notifications in case of initial failure.",
+                                "Acceptance Criteria": [
+                                  "Interrupted streams auto-resume within 3 seconds.",
+                                  "Fallback notifications are sent within 2 minutes if the primary fails."
+                                ],
+                                "Common Bugs": [
+                                  "Auto-resume fails after prolonged disconnections.",
+                                  "Duplicate fallback notifications are triggered."
+                                ]
                               },
                               {
                                 "Quality": "low",
-                                "User Story": "As a user, I want reminders about my appointments.",
-                                "Acceptance Criteria": ["Reminders are sent for upcoming appointments"],
-                                "Common Bugs": ["Missed reminders", "Notifications arrive late"]
+                                "User Story": "As a user, I want video streams to buffer instead of disconnecting during poor network conditions.",
+                                "Acceptance Criteria": [
+                                  "Buffered streams resume from the last played frame.",
+                                  "Buffering does not exceed 5 seconds."
+                                ],
+                                "Common Bugs": [
+                                  "Buffering exceeds acceptable limits during network disruptions.",
+                                  "Frames skip during stream resumption."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Lab Service Integration",
+                              "File Sharing"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a doctor, I want middleware to securely fetch lab reports and share them with patients without manual intervention.",
+                                "Acceptance Criteria": [
+                                  "Reports sync automatically within 5 minutes of availability.",
+                                  "Uploaded files are encrypted using AES-256."
+                                ],
+                                "Common Bugs": [
+                                  "File uploads fail due to incorrect encryption settings.",
+                                  "Lab report sync delays beyond 5 minutes.",
+                                  "Shared files lose formatting during upload."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want to upload and share prescriptions without size limits and receive notifications upon successful sharing.",
+                                "Acceptance Criteria": [
+                                  "Files up to 50 MB upload without errors.",
+                                  "Notifications confirm successful uploads within 1 minute."
+                                ],
+                                "Common Bugs": [
+                                  "Large files cause upload timeouts.",
+                                  "Notifications fail to trigger post upload."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to download shared files in a compressed format for faster access.",
+                                "Acceptance Criteria": [
+                                  "Files are compressed by at least 30%.",
+                                  "Downloads complete without data corruption."
+                                ],
+                                "Common Bugs": [
+                                  "Downloaded files are corrupted due to compression issues.",
+                                  "Uncompressed files fail to retain original formatting."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Voice-to-Text Conversion"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want middleware to transcribe live conversations accurately with a word error rate below 5%.",
+                                "Acceptance Criteria": [
+                                  "Transcription accuracy meets 95% under normal conditions.",
+                                  "Support for at least 5 different accents."
+                                ],
+                                "Common Bugs": [
+                                  "Transcription fails for non-native accents.",
+                                  "Real-time transcriptions lag by more than 3 seconds."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want middleware to highlight transcribed text in real-time for easy tracking.",
+                                "Acceptance Criteria": [
+                                  "Highlighted text updates within 2 seconds.",
+                                  "Supports a toggle to enable or disable highlights."
+                                ],
+                                "Common Bugs": [
+                                  "Highlighted text updates out of sync with the conversation.",
+                                  "Toggle option fails to save state across sessions."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to download transcripts of conversations in plain text format.",
+                                "Acceptance Criteria": [
+                                  "Transcripts are downloadable within 30 seconds of session end.",
+                                  "Plain text format maintains correct spacing and punctuation."
+                                ],
+                                "Common Bugs": [
+                                  "Transcripts are missing lines or punctuation.",
+                                  "Downloads fail intermittently due to file generation errors."
+                                ]
                               }
                             ]
                           }
                         ],
                         "Non-Functional": [
                           {
-                            "Feature Name": ["Fast Processing", "Low Latency"],
+                            "Feature Name": [
+                              "Performance",
+                              "Scalability"
+                            ],
                             "User Stories": [
                               {
                                 "Quality": "high",
-                                "User Story": "As a user, I want the system to process requests quickly to avoid long wait times.",
-                                "Acceptance Criteria": ["Processing speed meets performance benchmarks"],
-                                "Common Bugs": ["Slow data processing during peak times", "Lag in notifications"]
+                                "User Story": "As an administrator, I want the middleware to maintain <50ms response time while handling 1,000 concurrent API requests.",
+                                "Acceptance Criteria": [
+                                  "API response times stay under 50ms during load tests.",
+                                  "Server CPU utilization remains below 70%."
+                                ],
+                                "Common Bugs": [
+                                  "API requests time out under high concurrency.",
+                                  "Server overload leads to delayed responses."
+                                ]
                               },
                               {
                                 "Quality": "average",
-                                "User Story": "As a user, I want the system to respond to my requests in a timely manner.",
-                                "Acceptance Criteria": ["Request processing occurs within acceptable time limits"],
-                                "Common Bugs": ["Minor delays in processing during peak load"]
+                                "User Story": "As an administrator, I want middleware to support seamless scaling during traffic spikes without manual intervention.",
+                                "Acceptance Criteria": [
+                                  "System scales up within 2 minutes of increased traffic.",
+                                  "No downtime is observed during scaling."
+                                ],
+                                "Common Bugs": [
+                                  "Scaling delays cause temporary service interruptions.",
+                                  "Over-provisioning leads to unnecessary costs."
+                                ]
                               },
                               {
                                 "Quality": "low",
-                                "User Story": "As a user, I want the system to respond promptly.",
-                                "Acceptance Criteria": ["System response time is under acceptable threshold"],
-                                "Common Bugs": ["Significant delays during high traffic"]
+                                "User Story": "As an administrator, I want middleware to log performance metrics for post-incident analysis.",
+                                "Acceptance Criteria": [
+                                  "Logs include metrics such as response time, request volume, and errors.",
+                                  "Logs are accessible within 5 minutes of incidents."
+                                ],
+                                "Common Bugs": [
+                                  "Incomplete logs hinder root cause analysis.",
+                                  "Logs fail to capture timestamped data."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Security",
+                              "Data Integrity"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a compliance officer, I want middleware to encrypt all data in transit and at rest using industry standards like AES-256 and TLS 1.3.",
+                                "Acceptance Criteria": [
+                                  "Data encryption meets industry standards.",
+                                  "Unauthorized access attempts are logged and alerted."
+                                ],
+                                "Common Bugs": [
+                                  "Encryption keys are improperly managed.",
+                                  "Unencrypted data is transmitted due to misconfigurations."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want middleware to ensure no data loss during file uploads or downloads.",
+                                "Acceptance Criteria": [
+                                  "Upload and download operations include data integrity checks.",
+                                  "Error messages are displayed for failed operations."
+                                ],
+                                "Common Bugs": [
+                                  "Data corruption during transmission.",
+                                  "Integrity checks fail for certain file types."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want notifications for any potential data breaches involving my information.",
+                                "Acceptance Criteria": [
+                                  "Users are notified within 24 hours of any breach.",
+                                  "Notifications include clear instructions for corrective actions."
+                                ],
+                                "Common Bugs": [
+                                  "Delayed breach notifications.",
+                                  "False positives generate unnecessary user concern."
+                                ]
                               }
                             ]
                           }
@@ -189,50 +844,226 @@
                       "Requirements": {
                         "Functional": [
                           {
-                            "Feature Name": ["Doctor Search", "Health Record Management", "Appointment Scheduling"],
+                            "Feature Name": [
+                              "Doctor Search",
+                              "Online Appointment Scheduling"
+                            ],
                             "User Stories": [
                               {
                                 "Quality": "high",
-                                "User Story": "As a patient, I want to search for doctors by specialty to find the right care provider.",
-                                "Acceptance Criteria": ["Search results are accurate", "Filters work correctly"],
-                                "Common Bugs": ["Search results are inaccurate", "Filter options do not update search results"]
+                                "User Story": "As a patient, I want to search for doctors based on specialization, location, and availability, and schedule appointments in real-time.",
+                                "Acceptance Criteria": [
+                                  "Doctor search results should be accurate based on filters.",
+                                  "Appointments should be confirmed immediately upon selection."
+                                ],
+                                "Common Bugs": [
+                                  "Search results show incorrect doctor details.",
+                                  "Appointment booking errors occur during peak hours."
+                                ]
                               },
                               {
                                 "Quality": "average",
-                                "User Story": "As a patient, I want to quickly find doctors based on my specific needs.",
-                                "Acceptance Criteria": ["Search results are relevant", "Filters provide usable results"],
-                                "Common Bugs": ["Search results sometimes don’t match filter settings", "Search takes longer on certain queries"]
+                                "User Story": "As a patient, I want to be able to filter doctors by rating, distance, and availability for an easier search.",
+                                "Acceptance Criteria": [
+                                  "Filters should apply instantly without page reload.",
+                                  "Availability check should reflect the doctor's real-time calendar."
+                                ],
+                                "Common Bugs": [
+                                  "Filters reset unexpectedly after search.",
+                                  "Availability check shows outdated times."
+                                ]
                               },
                               {
                                 "Quality": "low",
-                                "User Story": "As a user, I want an easy way to find doctors.",
-                                "Acceptance Criteria": ["Search works with basic functionality"],
-                                "Common Bugs": ["Search function sometimes returns irrelevant results"]
+                                "User Story": "As a patient, I want a simple search option to find the nearest doctors.",
+                                "Acceptance Criteria": [
+                                  "Nearest doctor search should be based on geolocation.",
+                                  "Results should display within 2 seconds."
+                                ],
+                                "Common Bugs": [
+                                  "Geolocation feature fails in certain areas.",
+                                  "Search results take too long to load."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Health Record Management",
+                              "Search Filters"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a doctor, I want access to a patient's complete medical history and records for a seamless consultation experience.",
+                                "Acceptance Criteria": [
+                                  "Health records should be displayed in an organized and readable format.",
+                                  "Patient data should load within 2 seconds upon request."
+                                ],
+                                "Common Bugs": [
+                                  "Health records are incomplete or outdated.",
+                                  "Records take more than 5 seconds to load."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a doctor, I want to filter a patient's health records by type (e.g., prescriptions, tests, etc.).",
+                                "Acceptance Criteria": [
+                                  "Filters should work seamlessly and display records correctly.",
+                                  "Record filtering should be completed in under 3 seconds."
+                                ],
+                                "Common Bugs": [
+                                  "Filters don't work on all record types.",
+                                  "Filtering process takes too long to complete."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a doctor, I want to view basic patient details such as name, age, and last visit date.",
+                                "Acceptance Criteria": [
+                                  "Patient details should load without issues.",
+                                  "Basic details should be visible in the first view."
+                                ],
+                                "Common Bugs": [
+                                  "Patient details are not showing up or are delayed.",
+                                  "Basic information isn't prioritized or displayed properly."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Consultation History",
+                              "Prescription View",
+                              "Billing Page"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a patient, I want to view my past consultation history, prescriptions, and billing details in one place.",
+                                "Acceptance Criteria": [
+                                  "Consultation history, prescriptions, and billing information should be accurate and displayed clearly.",
+                                  "Billing page should include detailed cost breakdowns."
+                                ],
+                                "Common Bugs": [
+                                  "Prescription data is missing or incorrect.",
+                                  "Billing information is outdated or incorrectly calculated."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a patient, I want to download my prescriptions and billing details for future reference.",
+                                "Acceptance Criteria": [
+                                  "Downloadable files should include all necessary details like prescriptions and treatment costs.",
+                                  "Download link should work within 2 seconds of clicking."
+                                ],
+                                "Common Bugs": [
+                                  "Downloaded prescriptions don't have all relevant details.",
+                                  "Download links are broken or unresponsive."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a patient, I want to see an itemized bill of my consultation fees and treatments.",
+                                "Acceptance Criteria": [
+                                  "Bill should show a detailed list of consultation fees and treatments received.",
+                                  "Itemized billing should be displayed immediately after payment completion."
+                                ],
+                                "Common Bugs": [
+                                  "Itemized bill is incomplete or difficult to read.",
+                                  "Billing page doesn't update immediately after payments."
+                                ]
                               }
                             ]
                           }
                         ],
                         "Non-Functional": [
                           {
-                            "Feature Name": ["System Uptime", "Real-Time Sync"],
+                            "Feature Name": [
+                              "Load Time",
+                              "Cross-Browser Compatibility"
+                            ],
                             "User Stories": [
                               {
                                 "Quality": "high",
-                                "User Story": "As a user, I expect the web application to be available at all times with minimal downtime.",
-                                "Acceptance Criteria": ["System uptime > 99.99%"],
-                                "Common Bugs": ["System crashes during peak hours", "Sync issues between web and mobile"]
+                                "User Story": "As a user, I want the web application to load within 3 seconds across all major browsers (Chrome, Firefox, Safari, Edge).",
+                                "Acceptance Criteria": [
+                                  "Web pages should load in under 3 seconds consistently across browsers.",
+                                  "Browsers should render the app identically."
+                                ],
+                                "Common Bugs": [
+                                  "App takes longer than 3 seconds to load on some browsers.",
+                                  "Elements misalign across browsers."
+                                ]
                               },
                               {
                                 "Quality": "average",
-                                "User Story": "As a user, I want the application to be reliable and always available during working hours.",
-                                "Acceptance Criteria": ["System uptime > 95% during peak hours"],
-                                "Common Bugs": ["Occasional downtime", "Minor latency in real-time updates"]
+                                "User Story": "As a user, I want the web application to function well on at least Chrome, Firefox, and Safari.",
+                                "Acceptance Criteria": [
+                                  "The web app should work without significant issues on all selected browsers.",
+                                  "Minor inconsistencies between browsers should be addressed."
+                                ],
+                                "Common Bugs": [
+                                  "Certain features don't work on Firefox.",
+                                  "Minor UI elements are not properly aligned in Safari."
+                                ]
                               },
                               {
                                 "Quality": "low",
-                                "User Story": "As a user, I expect basic system availability.",
-                                "Acceptance Criteria": ["System uptime is at a minimum threshold"],
-                                "Common Bugs": ["Frequent unavailability during peak hours"]
+                                "User Story": "As a user, I want the web application to load at least on Chrome without issues.",
+                                "Acceptance Criteria": [
+                                  "Application loads without issues on Chrome.",
+                                  "Basic features should work without problems."
+                                ],
+                                "Common Bugs": [
+                                  "Loading issues occur in certain browsers.",
+                                  "App crashes upon loading in some browsers."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Responsiveness",
+                              "SEO Optimization",
+                              "Error Handling"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want the web application to be fully responsive, ensuring it looks good on mobile and tablet devices, and optimized for search engines.",
+                                "Acceptance Criteria": [
+                                  "Web application must display correctly on mobile, tablet, and desktop.",
+                                  "All pages must be SEO optimized for search ranking."
+                                ],
+                                "Common Bugs": [
+                                  "Mobile views are misaligned or difficult to navigate.",
+                                  "SEO elements missing or incorrectly configured."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want a responsive web design that adapts to different screen sizes and devices, with error messages displayed appropriately.",
+                                "Acceptance Criteria": [
+                                  "Error handling pages should be clear and user-friendly.",
+                                  "Responsive design should work across a range of devices."
+                                ],
+                                "Common Bugs": [
+                                  "Error messages are unclear or not displayed properly.",
+                                  "Layout doesn't adjust for certain screen sizes."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want the website to work fine on mobile devices and show basic error handling messages.",
+                                "Acceptance Criteria": [
+                                  "Mobile users should have no major issues with navigation.",
+                                  "Basic error messages should appear for failures like form submission errors."
+                                ],
+                                "Common Bugs": [
+                                  "Mobile users face navigation issues.",
+                                  "Error handling is inconsistent or unclear."
+                                ]
                               }
                             ]
                           }
@@ -244,50 +1075,268 @@
                       "Requirements": {
                         "Functional": [
                           {
-                            "Feature Name": ["Data Storage", "Real-Time Data Sync", "Appointment Management"],
+                            "Feature Name": [
+                              "Data Encryption",
+                              "Account Sync"
+                            ],
                             "User Stories": [
                               {
                                 "Quality": "high",
-                                "User Story": "As a patient, I want to store my health data securely and access it anytime.",
-                                "Acceptance Criteria": ["Data is securely stored", "User can access their data at any time"],
-                                "Common Bugs": ["Data is not being securely stored", "Access times vary"]
+                                "User Story": "As an admin, I want to ensure that all sensitive data is encrypted at rest and during transmission.",
+                                "Acceptance Criteria": [
+                                  "Data should be encrypted using industry-standard encryption methods (e.g., AES-256).",
+                                  "All communications between the frontend and backend should use HTTPS."
+                                ],
+                                "Common Bugs": [
+                                  "Encryption fails for certain types of data.",
+                                  "Data leakage occurs during transmission."
+                                ]
                               },
                               {
                                 "Quality": "average",
-                                "User Story": "As a patient, I want to update my health data when necessary.",
-                                "Acceptance Criteria": ["Data can be updated by authorized users", "Updates reflect in real time"],
-                                "Common Bugs": ["Update failures", "Lag in data updates"]
+                                "User Story": "As a user, I want my account information to sync seamlessly across devices.",
+                                "Acceptance Criteria": [
+                                  "User account information should be synced across all devices within 5 seconds of update.",
+                                  "Syncing should work without conflicts or data loss."
+                                ],
+                                "Common Bugs": [
+                                  "Account details are not syncing across devices.",
+                                  "Sync conflicts occur leading to data loss."
+                                ]
                               },
                               {
                                 "Quality": "low",
-                                "User Story": "As a user, I want to be able to access and update my information.",
-                                "Acceptance Criteria": ["Users can view and modify data with basic functionality"],
-                                "Common Bugs": ["Occasional errors when saving data"]
+                                "User Story": "As an admin, I want the system to automatically re-sync accounts after any server downtime.",
+                                "Acceptance Criteria": [
+                                  "User accounts should be automatically re-synced after the server is back online.",
+                                  "Sync should happen with minimal delay and without user intervention."
+                                ],
+                                "Common Bugs": [
+                                  "Auto-sync fails after server downtime.",
+                                  "Users have to manually re-sync accounts."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Efficient Search",
+                              "Payment Gateway"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want the search functionality to provide fast and relevant results based on my queries.",
+                                "Acceptance Criteria": [
+                                  "Search results should be returned in less than 2 seconds.",
+                                  "Search results should be relevant and sorted by priority (e.g., relevance, rating)."
+                                ],
+                                "Common Bugs": [
+                                  "Search results are slow or unresponsive.",
+                                  "Irrelevant results appear at the top of the search results."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want the payment gateway to handle all transactions securely and quickly.",
+                                "Acceptance Criteria": [
+                                  "Payment gateway should support multiple payment methods (e.g., credit card, PayPal).",
+                                  "Payments should be processed within 3 seconds."
+                                ],
+                                "Common Bugs": [
+                                  "Payment fails due to gateway errors.",
+                                  "Transaction details are not reflected in the user’s billing page."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As an admin, I want to configure the payment gateway settings through an admin panel.",
+                                "Acceptance Criteria": [
+                                  "Payment gateway settings should be configurable via the admin panel.",
+                                  "Configuration changes should be applied without requiring a server restart."
+                                ],
+                                "Common Bugs": [
+                                  "Admin panel does not load payment gateway settings.",
+                                  "Configuration changes are not applied in real-time."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Real-Time Sync",
+                              "User Permissions",
+                              "Billing Integration"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want my data to be updated in real-time across the system to reflect the latest information.",
+                                "Acceptance Criteria": [
+                                  "Data updates should be reflected across all devices and systems within 1 second of a change.",
+                                  "Real-time synchronization should work smoothly even with high volumes of data."
+                                ],
+                                "Common Bugs": [
+                                  "Real-time sync fails during high traffic periods.",
+                                  "Changes take too long to propagate across the system."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want my permissions to be managed so that I can only access authorized resources.",
+                                "Acceptance Criteria": [
+                                  "Permissions should be set based on roles (e.g., user, admin) and enforced consistently across all resources.",
+                                  "Permission changes should take effect immediately after saving."
+                                ],
+                                "Common Bugs": [
+                                  "Permissions are not being enforced for certain resources.",
+                                  "Permissions updates do not take effect immediately."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As an admin, I want billing integration to work smoothly with the existing backend infrastructure.",
+                                "Acceptance Criteria": [
+                                  "Billing data should be updated automatically when payments are processed.",
+                                  "Billing integration should handle different billing models (e.g., one-time, subscription)."
+                                ],
+                                "Common Bugs": [
+                                  "Billing data is incorrect after payment processing.",
+                                  "Inaccurate charges show up in the billing history."
+                                ]
                               }
                             ]
                           }
                         ],
                         "Non-Functional": [
                           {
-                            "Feature Name": ["Scalability", "Performance"],
+                            "Feature Name": [
+                              "System Uptime",
+                              "Data Security"
+                            ],
                             "User Stories": [
                               {
                                 "Quality": "high",
-                                "User Story": "As a user, I want the system to handle many requests without performance degradation.",
-                                "Acceptance Criteria": ["System handles high load without issues"],
-                                "Common Bugs": ["Server overload during peak traffic", "Performance issues during heavy usage"]
+                                "User Story": "As a user, I want to ensure the system is always available with minimal downtime and my data is secure.",
+                                "Acceptance Criteria": [
+                                  "System uptime should be 99.99% or higher.",
+                                  "All data should be encrypted both at rest and in transit using high-standard encryption algorithms."
+                                ],
+                                "Common Bugs": [
+                                  "System experiences frequent downtimes.",
+                                  "Sensitive data is exposed due to weak encryption."
+                                ]
                               },
                               {
                                 "Quality": "average",
-                                "User Story": "As a user, I want the system to work well during moderate load.",
-                                "Acceptance Criteria": ["System performs well under moderate traffic"],
-                                "Common Bugs": ["Performance degrades slightly under moderate load"]
+                                "User Story": "As an admin, I want to ensure all user data is securely stored and protected from unauthorized access.",
+                                "Acceptance Criteria": [
+                                  "User data should be securely stored with proper access control mechanisms.",
+                                  "Access to sensitive data should be logged and monitored."
+                                ],
+                                "Common Bugs": [
+                                  "Unauthorized access is possible for certain data.",
+                                  "Audit logs do not capture access attempts."
+                                ]
                               },
                               {
                                 "Quality": "low",
-                                "User Story": "As a user, I want the system to work during periods of high traffic.",
-                                "Acceptance Criteria": ["System can handle basic requests under load"],
-                                "Common Bugs": ["Lag during periods of heavy usage"]
+                                "User Story": "As a user, I want data backups to occur regularly in case of system failures.",
+                                "Acceptance Criteria": [
+                                  "Data backups should occur daily, with redundancy across multiple locations.",
+                                  "Data recovery should be possible within 1 hour after a failure."
+                                ],
+                                "Common Bugs": [
+                                  "Backups fail or are not completed on time.",
+                                  "Data recovery takes longer than expected."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Real-Time Data Synchronization",
+                              "Error Handling and Logging"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want to ensure that data is always in sync and errors are handled without disrupting my experience.",
+                                "Acceptance Criteria": [
+                                  "Data synchronization should occur in real-time, without conflicts or delays.",
+                                  "All errors should trigger clear notifications and detailed logs for troubleshooting."
+                                ],
+                                "Common Bugs": [
+                                  "Real-time sync lags or conflicts with updates.",
+                                  "Error logs are incomplete or not triggered."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As an admin, I want to be notified of any system errors and have access to logs to investigate the issue.",
+                                "Acceptance Criteria": [
+                                  "Errors should trigger notifications to admins.",
+                                  "Logs should capture detailed error information and user activity."
+                                ],
+                                "Common Bugs": [
+                                  "Admins are not notified of critical errors.",
+                                  "Logs are missing key error details."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want the system to recover gracefully from errors and continue functioning without major interruptions.",
+                                "Acceptance Criteria": [
+                                  "The system should provide fallback mechanisms to ensure service continuity after errors.",
+                                  "Users should be able to recover from errors without losing data."
+                                ],
+                                "Common Bugs": [
+                                  "Recovery mechanisms fail and cause service interruptions.",
+                                  "Users lose unsaved data after encountering errors."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Scalability"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As an admin, I want the backend infrastructure to scale efficiently as user demand increases.",
+                                "Acceptance Criteria": [
+                                  "Backend systems should handle increasing traffic without degradation in performance.",
+                                  "Scalability should be achieved without compromising data integrity or security."
+                                ],
+                                "Common Bugs": [
+                                  "Backend performance slows as traffic increases.",
+                                  "Scalability issues lead to data inconsistencies."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want the system to handle large amounts of concurrent requests without affecting response time.",
+                                "Acceptance Criteria": [
+                                  "The system should support thousands of concurrent users.",
+                                  "Response time should not exceed 3 seconds under heavy load."
+                                ],
+                                "Common Bugs": [
+                                  "Performance degrades under load.",
+                                  "System crashes during traffic spikes."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As an admin, I want to have tools to monitor and adjust system resources based on demand.",
+                                "Acceptance Criteria": [
+                                  "There should be tools for monitoring resource usage in real-time.",
+                                  "System resources should scale automatically based on traffic volume."
+                                ],
+                                "Common Bugs": [
+                                  "Scaling tools do not adjust resources properly.",
+                                  "Monitoring tools provide inaccurate data."
+                                ]
                               }
                             ]
                           }
@@ -299,50 +1348,1080 @@
                       "Requirements": {
                         "Functional": [
                           {
-                            "Feature Name": ["Push Notifications", "Syncing Data"],
+                            "Feature Name": [
+                              "Real-Time Notifications",
+                              "API Integration",
+                              "Session Management"
+                            ],
                             "User Stories": [
                               {
                                 "Quality": "high",
-                                "User Story": "As a user, I want to receive notifications when my appointment is confirmed.",
-                                "Acceptance Criteria": ["Push notifications sent correctly", "User receives timely reminders"],
-                                "Common Bugs": ["Push notifications not working", "Reminders missed"]
+                                "User Story": "As a user, I want to receive real-time notifications for appointments and important updates.",
+                                "Acceptance Criteria": [
+                                  "Notifications should be pushed to users immediately after an event occurs.",
+                                  "Notifications should be displayed clearly on both desktop and mobile platforms."
+                                ],
+                                "Common Bugs": [
+                                  "Notifications are delayed or not delivered.",
+                                  "Notifications are displayed incorrectly (e.g., blank or incomplete)."
+                                ]
                               },
                               {
                                 "Quality": "average",
-                                "User Story": "As a user, I want notifications about upcoming events.",
-                                "Acceptance Criteria": ["Notifications sent for important events"],
-                                "Common Bugs": ["Delayed notifications"]
+                                "User Story": "As a user, I want third-party payment and messaging services to be integrated with the system for smoother transactions.",
+                                "Acceptance Criteria": [
+                                  "API integrations with third-party services should work without causing service disruptions.",
+                                  "Payment and messaging services should respond within 3 seconds of a user request."
+                                ],
+                                "Common Bugs": [
+                                  "API calls to third-party services fail intermittently.",
+                                  "Payment or messaging services are delayed or not available."
+                                ]
                               },
                               {
                                 "Quality": "low",
-                                "User Story": "As a user, I want reminders about my appointments.",
-                                "Acceptance Criteria": ["Reminders are sent for upcoming appointments"],
-                                "Common Bugs": ["Missed reminders"]
+                                "User Story": "As a system admin, I want user sessions to be securely managed and kept alive without unnecessary timeouts.",
+                                "Acceptance Criteria": [
+                                  "User sessions should automatically expire after 15 minutes of inactivity or can be extended by the user.",
+                                  "Session data should be securely stored and prevent unauthorized access."
+                                ],
+                                "Common Bugs": [
+                                  "Sessions expire unexpectedly or fail to extend.",
+                                  "Session data is not encrypted or accessible to unauthorized users."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Data Encryption",
+                              "Authentication & Authorization"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want my sensitive data to be encrypted during transmission for privacy and security.",
+                                "Acceptance Criteria": [
+                                  "All sensitive data should be encrypted using strong encryption protocols (e.g., TLS 1.2+).",
+                                  "Data should remain encrypted end-to-end between frontend and backend."
+                                ],
+                                "Common Bugs": [
+                                  "Data is transmitted in plain text, risking exposure.",
+                                  "Encryption breaks after certain events (e.g., after login)."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want secure login and proper access control mechanisms in place to protect my data.",
+                                "Acceptance Criteria": [
+                                  "Login should require a valid email/password combination or multi-factor authentication (MFA).",
+                                  "Access control mechanisms should enforce role-based permissions across the system."
+                                ],
+                                "Common Bugs": [
+                                  "Users bypass login security.",
+                                  "Unauthorized users can access protected data."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As an admin, I want authentication and authorization systems to be easily configurable for new roles and users.",
+                                "Acceptance Criteria": [
+                                  "Admins should be able to configure roles and permissions through an admin dashboard.",
+                                  "New users should be assigned appropriate roles upon creation."
+                                ],
+                                "Common Bugs": [
+                                  "Role configurations are not applied correctly.",
+                                  "New users receive incorrect permissions after registration."
+                                ]
                               }
                             ]
                           }
                         ],
                         "Non-Functional": [
                           {
-                            "Feature Name": ["System Latency", "Performance"],
+                            "Feature Name": [
+                              "Performance",
+                              "Scalability"
+                            ],
                             "User Stories": [
                               {
                                 "Quality": "high",
-                                "User Story": "As a user, I want the system to handle all requests with low latency.",
-                                "Acceptance Criteria": ["Request latency is minimal"],
-                                "Common Bugs": ["System freezes when processing high load"]
+                                "User Story": "As a user, I want the middleware to perform actions with minimal latency, ensuring a fast and responsive experience.",
+                                "Acceptance Criteria": [
+                                  "Middleware should process requests in under 100ms for most user actions.",
+                                  "Requests that trigger external API calls should be processed in under 1 second."
+                                ],
+                                "Common Bugs": [
+                                  "Middleware introduces significant latency, affecting user experience.",
+                                  "API calls cause delays in response times."
+                                ]
                               },
                               {
                                 "Quality": "average",
-                                "User Story": "As a user, I want low latency for critical actions.",
-                                "Acceptance Criteria": ["Critical actions should be processed quickly"],
-                                "Common Bugs": ["Noticeable delay for certain actions"]
+                                "User Story": "As an admin, I want the middleware to support an increasing number of users and API calls without performance degradation.",
+                                "Acceptance Criteria": [
+                                  "The middleware should handle at least 10,000 concurrent users and 100,000 API calls per minute.",
+                                  "Performance should remain consistent under high loads."
+                                ],
+                                "Common Bugs": [
+                                  "System slows down significantly when traffic spikes.",
+                                  "API calls start to fail when the system is under heavy load."
+                                ]
                               },
                               {
                                 "Quality": "low",
-                                "User Story": "As a user, I expect responsive system actions.",
-                                "Acceptance Criteria": ["Basic system actions respond under 2 seconds"],
-                                "Common Bugs": ["Response delays during peak traffic"]
+                                "User Story": "As a developer, I want to ensure that the middleware can scale automatically based on traffic demand.",
+                                "Acceptance Criteria": [
+                                  "Middleware should scale automatically with no manual intervention as traffic increases.",
+                                  "Scalability solutions should be implemented in the cloud infrastructure."
+                                ],
+                                "Common Bugs": [
+                                  "Scaling mechanisms do not trigger during high traffic.",
+                                  "Scaling leads to system inconsistencies or data loss."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Reliability",
+                              "Security",
+                              "Fault Tolerance"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want the middleware to be highly reliable, minimizing errors and downtime.",
+                                "Acceptance Criteria": [
+                                  "Middleware should have a 99.99% uptime with failover mechanisms for high availability.",
+                                  "Automatic retries should be implemented in case of transient errors."
+                                ],
+                                "Common Bugs": [
+                                  "Middleware experiences frequent downtimes.",
+                                  "Retry mechanisms are not triggered when errors occur."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As an admin, I want the middleware to be secure, with proper encryption and token-based authentication in place.",
+                                "Acceptance Criteria": [
+                                  "Encryption should be applied to all sensitive communications.",
+                                  "Token-based authentication (e.g., JWT) should be used for API access."
+                                ],
+                                "Common Bugs": [
+                                  "Encryption breaks, exposing sensitive data.",
+                                  "Token-based authentication fails or is bypassed."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a developer, I want the middleware to handle faults gracefully and recover quickly without user impact.",
+                                "Acceptance Criteria": [
+                                  "In case of failure, the system should failover to a backup without significant downtime.",
+                                  "Users should receive appropriate notifications if there is a temporary disruption."
+                                ],
+                                "Common Bugs": [
+                                  "Middleware crashes or becomes unresponsive.",
+                                  "Users are not notified of temporary faults."
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "App Name": "HealthTap",
+              "Platforms": [
+                {
+                  "Platform Name": "Mobile",
+                  "Software Types": [
+                    {
+                      "Software Type": "Frontend",
+                      "Requirements": {
+                        "Functional": [
+                          {
+                            "Feature Name": [
+                              "Appointment Booking",
+                              "Consultation Request",
+                              "Health Record Tracking"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want to book an appointment with a doctor quickly and easily through the app.",
+                                "Acceptance Criteria": [
+                                  "The appointment booking flow should be intuitive and require no more than 3 steps.",
+                                  "Users should receive a confirmation once the appointment is booked."
+                                ],
+                                "Common Bugs": [
+                                  "Appointment booking flow is complicated or confusing.",
+                                  "Confirmation is not sent to the user after booking."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want to request a consultation with a doctor and receive feedback.",
+                                "Acceptance Criteria": [
+                                  "Consultation request should be submitted with details and acknowledged.",
+                                  "Doctors should be notified and able to respond to the request."
+                                ],
+                                "Common Bugs": [
+                                  "Consultation request is not submitted properly.",
+                                  "Doctors do not receive notifications for consultation requests."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to track my health records over time to monitor my health progress.",
+                                "Acceptance Criteria": [
+                                  "Health records should be displayed in a timeline format for easy reference.",
+                                  "Users should be able to view previous appointments and medical data."
+                                ],
+                                "Common Bugs": [
+                                  "Health records are not displayed or are outdated.",
+                                  "Records are not clearly organized or accessible."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Emergency Services",
+                              "Instant Chat",
+                              "Prescription Refills"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want to request emergency services through the app when needed.",
+                                "Acceptance Criteria": [
+                                  "Emergency service request should be processed immediately and sent to the relevant service provider.",
+                                  "Confirmation of request should be sent to the user within 1 minute."
+                                ],
+                                "Common Bugs": [
+                                  "Emergency request is delayed or not processed.",
+                                  "Confirmation is not received by the user after requesting emergency services."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want to be able to chat instantly with my doctor or healthcare provider through the app.",
+                                "Acceptance Criteria": [
+                                  "Instant chat should be available 24/7 for users and healthcare providers.",
+                                  "Users should receive immediate replies to their queries within 2 minutes."
+                                ],
+                                "Common Bugs": [
+                                  "Delayed chat responses.",
+                                  "Connection failures during chats."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to request prescription refills from my healthcare provider via the app.",
+                                "Acceptance Criteria": [
+                                  "Prescription refill requests should be submitted easily with required medication details.",
+                                  "Users should be notified when a refill is processed."
+                                ],
+                                "Common Bugs": [
+                                  "Prescription refill request is not submitted correctly.",
+                                  "Users do not receive notifications about the status of their refills."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Push Notification for Follow-up Reminders",
+                              "Doctor Profile Customization",
+                              "In-app Health Tips"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want to receive push notifications reminding me about follow-up appointments or health tasks.",
+                                "Acceptance Criteria": [
+                                  "Follow-up reminders should be sent at least 24 hours before the scheduled time.",
+                                  "Notifications should include appointment details and instructions."
+                                ],
+                                "Common Bugs": [
+                                  "Notifications are not received or are delayed.",
+                                  "Reminders do not include all necessary details."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want to customize my doctor's profile with information like biography, specialties, and contact details.",
+                                "Acceptance Criteria": [
+                                  "Doctors should be able to add and update their profile information directly in the app.",
+                                  "Users should see the latest information on the doctor's profile."
+                                ],
+                                "Common Bugs": [
+                                  "Profile data is not updated correctly.",
+                                  "User cannot see the most recent doctor information."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to receive in-app health tips and advice based on my medical history and preferences.",
+                                "Acceptance Criteria": [
+                                  "Health tips should be personalized and updated regularly based on user data.",
+                                  "Users should be able to dismiss or save health tips for later."
+                                ],
+                                "Common Bugs": [
+                                  "Health tips are not personalized.",
+                                  "Users are not able to dismiss or save tips."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Quick Access to Medical Records"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want quick access to my medical records for a seamless consultation experience.",
+                                "Acceptance Criteria": [
+                                  "Medical records should be accessible from the main screen with minimal clicks.",
+                                  "Records should load in under 3 seconds."
+                                ],
+                                "Common Bugs": [
+                                  "Medical records are not loading properly.",
+                                  "Access to medical records is slow."
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "Non-Functional": [
+                          {
+                            "Feature Name": [
+                              "App Load Time",
+                              "Fast Transitions",
+                              "Smooth Scrolling"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want the app to load in under 2 seconds to avoid frustration.",
+                                "Acceptance Criteria": [
+                                  "App should load in under 2 seconds on both Wi-Fi and mobile data."
+                                ],
+                                "Common Bugs": [
+                                  "App takes more than 2 seconds to load.",
+                                  "App freezes during loading."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want fast transitions between app pages to maintain fluid navigation.",
+                                "Acceptance Criteria": [
+                                  "Page transitions should take less than 1 second.",
+                                  "Visual feedback during transitions should be smooth."
+                                ],
+                                "Common Bugs": [
+                                  "Transitions are delayed or jerky.",
+                                  "Page elements do not load during transitions."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want smooth scrolling for content that is long or detailed.",
+                                "Acceptance Criteria": [
+                                  "Scrolling should be smooth without stuttering, even in long content sections."
+                                ],
+                                "Common Bugs": [
+                                  "Scrolling lags when accessing long lists or pages."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Battery-efficient Performance",
+                              "Minimal Memory Usage",
+                              "Fast Recovery After Crashes"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want the app to be battery-efficient, especially during long sessions.",
+                                "Acceptance Criteria": [
+                                  "The app should not drain more than 10% battery after 2 hours of usage."
+                                ],
+                                "Common Bugs": [
+                                  "App drains battery quickly.",
+                                  "Battery consumption increases unexpectedly."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want the app to use minimal memory for smooth performance.",
+                                "Acceptance Criteria": [
+                                  "The app should use no more than 100MB of RAM during normal operation."
+                                ],
+                                "Common Bugs": [
+                                  "App uses excessive memory, leading to slowdowns."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want the app to recover quickly if it crashes, ensuring I don't lose progress.",
+                                "Acceptance Criteria": [
+                                  "After a crash, the app should restart in under 5 seconds and restore the previous state."
+                                ],
+                                "Common Bugs": [
+                                  "App takes too long to recover from crashes.",
+                                  "Progress is lost after the app crashes."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Smooth Animations and Transitions",
+                              "High-Resolution Images for Medical Info"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want animations and transitions to be smooth for a polished experience.",
+                                "Acceptance Criteria": [
+                                  "Animations should run at 60fps and not stutter during transitions."
+                                ],
+                                "Common Bugs": [
+                                  "Animations appear choppy or inconsistent."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want high-resolution images for medical information, so I can view detailed medical records clearly.",
+                                "Acceptance Criteria": [
+                                  "Medical images should have at least 1080p resolution and should be zoomable."
+                                ],
+                                "Common Bugs": [
+                                  "Images are blurry or not detailed."
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "Software Type": "Backend",
+                      "Requirements": {
+                        "Functional": [
+                          {
+                            "Feature Name": [
+                              "Real-Time Data Sync",
+                              "User Verification",
+                              "Payment Gateway Integration"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want my health records to sync in real-time across devices for consistency.",
+                                "Acceptance Criteria": [
+                                  "Health record updates should be reflected on all devices within 5 seconds.",
+                                  "Data conflicts during sync should be automatically resolved."
+                                ],
+                                "Common Bugs": [
+                                  "Data syncing is delayed or inconsistent.",
+                                  "Conflicts lead to missing or duplicated records."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want to verify my identity securely to protect my personal data.",
+                                "Acceptance Criteria": [
+                                  "Verification should include multi-factor authentication (MFA) with email or phone OTP.",
+                                  "Users should not experience more than one failed verification attempt due to backend errors."
+                                ],
+                                "Common Bugs": [
+                                  "Verification codes are not sent or delayed.",
+                                  "Verification system locks users out incorrectly."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want secure payment gateway integration for hassle-free transactions.",
+                                "Acceptance Criteria": [
+                                  "Payments should process securely within 10 seconds.",
+                                  "Payment failures should include clear error messages and retry options."
+                                ],
+                                "Common Bugs": [
+                                  "Payments fail without meaningful feedback.",
+                                  "Transactions are processed multiple times."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Health Record Storage",
+                              "Appointment Scheduling",
+                              "AI-Based Symptom Checker"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a healthcare provider, I want all patient health records to be securely stored and retrievable at any time.",
+                                "Acceptance Criteria": [
+                                  "Records must be encrypted and comply with HIPAA and GDPR standards.",
+                                  "Access to records should be logged and monitored for unauthorized access."
+                                ],
+                                "Common Bugs": [
+                                  "Health records are lost or corrupted during storage.",
+                                  "Unauthorized access to sensitive health data."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want to schedule appointments with available doctors based on time slots.",
+                                "Acceptance Criteria": [
+                                  "Appointments should be confirmed within 10 seconds after submission.",
+                                  "Conflicts in time slots should prompt alternative suggestions."
+                                ],
+                                "Common Bugs": [
+                                  "Time slots do not reflect real availability.",
+                                  "Appointments fail to save or confirm."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to input symptoms and get recommendations from an AI-based checker for preliminary insights.",
+                                "Acceptance Criteria": [
+                                  "The AI should provide symptom suggestions within 5 seconds.",
+                                  "Results should include clear disclaimers for non-medical advice."
+                                ],
+                                "Common Bugs": [
+                                  "AI provides irrelevant or inaccurate symptom suggestions.",
+                                  "Recommendations take too long to generate."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Dynamic Prescription Management",
+                              "Integration with Local Pharmacy Databases",
+                              "Multilingual Support"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a doctor, I want to dynamically manage prescriptions for patients, including editing and reissuing them.",
+                                "Acceptance Criteria": [
+                                  "Doctors should be able to modify prescriptions with immediate updates visible to patients.",
+                                  "Notifications should be sent to pharmacies for updated prescriptions."
+                                ],
+                                "Common Bugs": [
+                                  "Prescriptions fail to update or sync with pharmacies.",
+                                  "Patients do not see updated prescriptions in real-time."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want my prescriptions to integrate seamlessly with local pharmacy databases for refills.",
+                                "Acceptance Criteria": [
+                                  "Pharmacies should receive prescription requests within 10 seconds.",
+                                  "Prescription statuses (e.g., fulfilled) should sync back to the app."
+                                ],
+                                "Common Bugs": [
+                                  "Prescriptions are not sent to pharmacies correctly.",
+                                  "Status updates are not reflected in the app."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want the app to support multiple languages for better accessibility.",
+                                "Acceptance Criteria": [
+                                  "The app should support at least 5 major languages.",
+                                  "Language preferences should be saved and applied globally across sessions."
+                                ],
+                                "Common Bugs": [
+                                  "Language preferences are not saved or applied.",
+                                  "Translations are incomplete or inaccurate."
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "Non-Functional": [
+                          {
+                            "Feature Name": [
+                              "High Scalability",
+                              "Data Security",
+                              "Low Latency"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a system administrator, I want the backend to scale efficiently during peak hours to handle increased traffic.",
+                                "Acceptance Criteria": [
+                                  "System should handle 100,000 concurrent users without performance degradation.",
+                                  "Automatic scaling should occur within 1 minute of detecting high loads."
+                                ],
+                                "Common Bugs": [
+                                  "System slows down or crashes during peak hours.",
+                                  "Scaling delays cause server overload."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want my sensitive data to remain secure during storage and transmission.",
+                                "Acceptance Criteria": [
+                                  "Data should be encrypted using AES-256 for storage and TLS 1.3 for transmission.",
+                                  "Security breaches should trigger automatic alerts within 5 minutes."
+                                ],
+                                "Common Bugs": [
+                                  "Data is transmitted without encryption.",
+                                  "Unauthorized access to sensitive data."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want low latency for backend processes to ensure a responsive experience.",
+                                "Acceptance Criteria": [
+                                  "Backend APIs should respond in under 200ms for 95% of requests.",
+                                  "Loading indicators should display for requests longer than 500ms."
+                                ],
+                                "Common Bugs": [
+                                  "API requests frequently exceed 200ms.",
+                                  "Users experience slow response times during high traffic."
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Zero-Downtime Deployments",
+                              "Elastic Load Balancing",
+                              "Compliance with Health Regulations"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a DevOps engineer, I want to deploy updates without causing any downtime to the system.",
+                                "Acceptance Criteria": [
+                                  "Deployments should use blue-green deployment strategies.",
+                                  "Users should experience no service interruptions during updates."
+                                ],
+                                "Common Bugs": [
+                                  "Updates cause temporary service interruptions.",
+                                  "Users are logged out during deployments."
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a system administrator, I want elastic load balancing to distribute traffic evenly and prevent server overload.",
+                                "Acceptance Criteria": [
+                                  "Traffic should be evenly distributed across servers within 1 second.",
+                                  "Overloaded servers should offload traffic to less busy ones."
+                                ],
+                                "Common Bugs": [
+                                  "Traffic is not distributed properly, causing some servers to overload.",
+                                  "Load balancing rules are not applied dynamically."
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a healthcare provider, I want the system to comply with regional health data regulations for secure data handling.",
+                                "Acceptance Criteria": [
+                                  "System should comply with HIPAA, GDPR, or local equivalents.",
+                                  "Compliance audits should be automated quarterly."
+                                ],
+                                "Common Bugs": [
+                                  "Data handling processes do not meet compliance standards.",
+                                  "Compliance reports are incomplete or missing."
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "Software Type": "Middleware",
+                      "Requirements": {
+                        "Functional": [
+                          {
+                            "Feature Name": [
+                              "Video consultation"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want to seamlessly connect to video consultations.",
+                                "Acceptance Criteria": [
+                                  "Video starts in under 3 seconds.",
+                                  "Call quality is consistent."
+                                ],
+                                "Common Bugs": [
+                                  "Connection drops",
+                                  "Video lags"
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want the video call to reconnect automatically if the connection is lost.",
+                                "Acceptance Criteria": [
+                                  "Reconnects in under 5 seconds."
+                                ],
+                                "Common Bugs": [
+                                  "Call disconnection",
+                                  "Audio delay"
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to mute my video call during consultations.",
+                                "Acceptance Criteria": [
+                                  "Mute functionality works."
+                                ],
+                                "Common Bugs": [
+                                  "Mute button not responsive"
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "Non-Functional": [
+                          {
+                            "Feature Name": [
+                              "Low latency"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want low-latency video and chat responses.",
+                                "Acceptance Criteria": [
+                                  "Latency <100ms during consultations."
+                                ],
+                                "Common Bugs": [
+                                  "Inconsistent latency under load"
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want video and chat responses to have acceptable latency.",
+                                "Acceptance Criteria": [
+                                  "Latency <300ms."
+                                ],
+                                "Common Bugs": [
+                                  "Occasional lag during calls"
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to have video calls even with latency of up to 500ms.",
+                                "Acceptance Criteria": [
+                                  "Video calls are still functional."
+                                ],
+                                "Common Bugs": [
+                                  "Video freezes occasionally"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "Platform Name": "Web",
+                  "Software Types": [
+                    {
+                      "Software Type": "Frontend",
+                      "Requirements": {
+                        "Functional": [
+                          {
+                            "Feature Name": [
+                              "Doctor search by specialty"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want to search for doctors by their specialties.",
+                                "Acceptance Criteria": [
+                                  "Search results load within 2 seconds."
+                                ],
+                                "Common Bugs": [
+                                  "Incorrect search results"
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want to see a list of top-rated doctors when I search by specialty.",
+                                "Acceptance Criteria": [
+                                  "Top-rated doctors appear first in the search."
+                                ],
+                                "Common Bugs": [
+                                  "Search results not in proper order"
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to be able to search for doctors by name as well.",
+                                "Acceptance Criteria": [
+                                  "Search by name returns relevant results."
+                                ],
+                                "Common Bugs": [
+                                  "Search is too slow"
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "Non-Functional": [
+                          {
+                            "Feature Name": [
+                              "Web app load time"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want the web app to load in under 3 seconds.",
+                                "Acceptance Criteria": [
+                                  "Consistently loads in <3 seconds."
+                                ],
+                                "Common Bugs": [
+                                  "Slow loading under high traffic"
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want the web app to load in less than 5 seconds.",
+                                "Acceptance Criteria": [
+                                  "App loads in <5 seconds during high traffic."
+                                ],
+                                "Common Bugs": [
+                                  "Slight delay when loading"
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want the web app to load in under 7 seconds on slow networks.",
+                                "Acceptance Criteria": [
+                                  "App loads in <7 seconds on poor connections."
+                                ],
+                                "Common Bugs": [
+                                  "App takes too long to load"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "Software Type": "Backend",
+                      "Requirements": {
+                        "Functional": [
+                          {
+                            "Feature Name": [
+                              "User authentication and authorization"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want secure login functionality using multi-factor authentication.",
+                                "Acceptance Criteria": [
+                                  "User can log in with username/password + 2FA."
+                                ],
+                                "Common Bugs": [
+                                  "Authentication failure",
+                                  "2FA fails occasionally"
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want to log in with my email and password.",
+                                "Acceptance Criteria": [
+                                  "Login successful with email/password."
+                                ],
+                                "Common Bugs": [
+                                  "Password reset fails"
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want to log in with my social media account.",
+                                "Acceptance Criteria": [
+                                  "Login through Facebook/Google works."
+                                ],
+                                "Common Bugs": [
+                                  "Social login fails occasionally"
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "Non-Functional": [
+                          {
+                            "Feature Name": [
+                              "Data backup and recovery"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a system admin, I want daily backups of all critical data.",
+                                "Acceptance Criteria": [
+                                  "Backups occur automatically daily without fail."
+                                ],
+                                "Common Bugs": [
+                                  "Backup fails occasionally"
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a system admin, I want weekly backups of user data.",
+                                "Acceptance Criteria": [
+                                  "Backups occur automatically every week."
+                                ],
+                                "Common Bugs": [
+                                  "Backup schedule fails occasionally"
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a system admin, I want to manually back up data.",
+                                "Acceptance Criteria": [
+                                  "Manual backups can be initiated by admin."
+                                ],
+                                "Common Bugs": [
+                                  "Manual backups fail occasionally"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "Software Type": "Middleware",
+                      "Requirements": {
+                        "Functional": [
+                          {
+                            "Feature Name": [
+                              "Session Management"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a user, I want seamless session management with auto-renewal to avoid disruptions.",
+                                "Acceptance Criteria": [
+                                  "Sessions auto-renew without requiring re-login.",
+                                  "Session timeout notifications are sent 5 minutes prior."
+                                ],
+                                "Common Bugs": [
+                                  "Sessions expire prematurely"
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a user, I want my session to remain active for 30 minutes of inactivity.",
+                                "Acceptance Criteria": [
+                                  "Session times out after 30 minutes of inactivity."
+                                ],
+                                "Common Bugs": [
+                                  "Session timeout notifications not sent"
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a user, I want a manual logout button to end sessions.",
+                                "Acceptance Criteria": [
+                                  "Manual logout clears session tokens immediately."
+                                ],
+                                "Common Bugs": [
+                                  "Logout does not clear session occasionally"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "Feature Name": [
+                              "Third-Party API Integration"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a developer, I want the middleware to handle third-party API failures gracefully.",
+                                "Acceptance Criteria": [
+                                  "Middleware retries failed requests up to 3 times.",
+                                  "Fallback mechanisms handle API outages seamlessly."
+                                ],
+                                "Common Bugs": [
+                                  "Fallbacks fail during major outages"
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a developer, I want the middleware to log errors for failed API requests.",
+                                "Acceptance Criteria": [
+                                  "Error logs are created for all failed requests."
+                                ],
+                                "Common Bugs": [
+                                  "Error logs are incomplete"
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a developer, I want basic API call handling to integrate third-party services.",
+                                "Acceptance Criteria": [
+                                  "Third-party API calls are processed successfully."
+                                ],
+                                "Common Bugs": [
+                                  "API calls fail occasionally"
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "Non-Functional": [
+                          {
+                            "Feature Name": [
+                              "Scalability"
+                            ],
+                            "User Stories": [
+                              {
+                                "Quality": "high",
+                                "User Story": "As a system owner, I want the middleware to handle up to 1 million requests per minute.",
+                                "Acceptance Criteria": [
+                                  "Middleware scales to support up to 1 million RPM."
+                                ],
+                                "Common Bugs": [
+                                  "Middleware performance degrades under massive traffic"
+                                ]
+                              },
+                              {
+                                "Quality": "average",
+                                "User Story": "As a system owner, I want the middleware to handle up to 100,000 requests per minute.",
+                                "Acceptance Criteria": [
+                                  "Middleware supports 100,000 RPM during high traffic."
+                                ],
+                                "Common Bugs": [
+                                  "Performance drops slightly under load"
+                                ]
+                              },
+                              {
+                                "Quality": "low",
+                                "User Story": "As a system owner, I want the middleware to handle 10,000 requests per minute.",
+                                "Acceptance Criteria": [
+                                  "Middleware handles 10,000 RPM reliably."
+                                ],
+                                "Common Bugs": [
+                                  "Occasional performance dips"
+                                ]
                               }
                             ]
                           }
