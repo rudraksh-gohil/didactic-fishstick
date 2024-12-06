@@ -1702,7 +1702,7 @@
           "Region": "Brazil",
           "Apps": [
             {
-              "name": "Pague Menos Saúde",
+              "name": "Pague Menos Saude",
               "functional_requirements": {
                 "mobile": {
                   "frontend": ["Search for pharmacy products", "Order prescriptions", "Track orders", "View promotions", "Access health tips"],
