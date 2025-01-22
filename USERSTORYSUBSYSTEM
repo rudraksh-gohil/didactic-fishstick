@@ -1,0 +1,109 @@
+{
+    "domain": "Over The Top (OTT)",
+    "subdomains": [
+        {
+            "name": "Video Streaming",
+            "subsystems": [
+                {
+                    "type": "Content Delivery",
+                    "details": [
+                        {
+                            "name": "Content Delivery Network (CDN)",
+                            "description": "A system of distributed servers that deliver video content based on the user's location.",
+                            "use_cases": [
+                                "Deliver high-quality video content",
+                                "Reduce latency for live streaming"
+                            ],
+                            "configuration": {
+                                "cache_size": "500GB",
+                                "max_connections": "100,000"
+                            },
+                            "performance_metrics": {
+                                "latency": "20ms",
+                                "throughput": "10Gbps"
+                            },
+                            "dependencies": [
+                                "Edge Servers",
+                                "Load Balancers"
+                            ],
+                            "integration_points": [
+                                {
+                                    "service": "Akamai CDN",
+                                    "type": "Streaming",
+                                    "method": "HTTP-based delivery"
+                                }
+                            ],
+                            "user_stories": [
+                                {
+                                    "_id": "1234abcd5678efgh9012ijkl",
+                                    "quality": "High",
+                                    "description": {
+                                        "user_story": "As a user, I want seamless video streaming without buffering, so that I can enjoy uninterrupted content, even during peak hours.",
+                                        "acceptance_criteria": [
+                                            "Video streams should start within 2 seconds.",
+                                            "Provide adaptive bitrate streaming to avoid buffering.",
+                                            "Ensure content delivery with less than 20ms latency."
+                                        ]
+                                    },
+                                    "context": {
+                                        "platform": "Web",
+                                        "region": "North America",
+                                        "software_type": "Backend",
+                                        "feature": "Seamless Streaming"
+                                    },
+                                    "common_bugs": {
+                                        "functional": [
+                                            "Buffering issues during high traffic",
+                                            "Incorrect CDN node selection"
+                                        ],
+                                        "non_functional": [
+                                            "Latency spikes during live events",
+                                            "Inconsistent playback quality"
+                                        ]
+                                    },
+                                    "apps": [
+                                        "Netflix",
+                                        "Disney+"
+                                    ],
+                                    "data_type": "Synthetic Data"
+                                },
+                                {
+                                    "_id": "5678mnop1234qrst9012uvwx",
+                                    "quality": "Medium",
+                                    "description": {
+                                        "user_story": "As a user, I want reliable video playback on demand, so that I can watch content without worrying about loading issues.",
+                                        "acceptance_criteria": [
+                                            "Playback should resume within 3 seconds after pausing.",
+                                            "Ensure stable streaming for connections with 5Mbps bandwidth."
+                                        ]
+                                    },
+                                    "context": {
+                                        "platform": "Mobile",
+                                        "region": "Europe",
+                                        "software_type": "Frontend",
+                                        "feature": "Playback Controls"
+                                    },
+                                    "common_bugs": {
+                                        "functional": [
+                                            "Playback stutters during seek operations",
+                                            "Delayed video resume after pause"
+                                        ],
+                                        "non_functional": [
+                                            "Battery drain during video playback",
+                                            "Excessive memory usage on older devices"
+                                        ]
+                                    },
+                                    "apps": [
+                                        "Amazon Prime Video",
+                                        "Hulu"
+                                    ],
+                                    "data_type": "Synthetic Data"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
