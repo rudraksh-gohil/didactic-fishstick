@@ -1,0 +1,49 @@
+{
+    "_id": "ObjectId('64f7b50e456f42ab9d7c')",
+    "domain": "Over The Top",
+    "subdomains": [
+        {
+            "name": "Video Streaming",
+            "subsystems": [
+                {
+                    "type": "Content Delivery",
+                    "technology": "Content Delivery Network (CDN)",
+                    "features": [
+                        {
+                            "name": "Geo-location delivery",
+                            "user_stories": [
+                                {
+                                    "quality": "Low Latency",
+                                    "description": "As a user, I want videos to load instantly without buffering.",
+                                    "quality": "High",
+                                    "contextual_characteristics": {
+                                        "performance": ["<50ms response", "High throughput"],
+                                        "scalability": ["Handles 1M users", "Supports global edge servers"],
+                                        "latency": ["<10ms edge fetch", "<50ms cross-region"],
+                                        "security": ["Cache encryption", "DDoS prevention"],
+                                        "compatibility": ["Cloudflare", "Akamai"]
+                                    }
+                                },
+                                {
+                                    "quality": "High Availability",
+                                    "description": "As a business, I want content to always be accessible, even during high traffic.",
+                                    "quality": "High",
+                                    "contextual_characteristics": {
+                                        "performance": ["99.99% uptime"],
+                                        "scalability": ["Dynamic load balancing"],
+                                        "latency": ["<1s failover"],
+                                        "security": ["Redundant edge servers"],
+                                        "compatibility": ["AWS CloudFront", "Fastly"]
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    "associated_tools": ["Akamai", "Cloudflare", "AWS CloudFront"],
+                    "standards_and_protocols": ["HLS", "DASH"],
+                    "deployment_models": ["Cloud", "Hybrid"]
+                }
+            ]
+        }
+    ]
+}
