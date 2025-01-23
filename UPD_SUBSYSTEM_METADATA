@@ -1,0 +1,43 @@
+{
+    "domain": "Over The Top",
+    "subdomains": [
+        {
+            "name": "Video Streaming",
+            "subsystems": [
+                {
+                    "type": "Content Distribution",
+                    "details": [
+                        {
+                            "technology": "Content Delivery Network (CDN)",
+                            "features": [
+                                {
+                                    "name": "Geo-location delivery",
+                                    "characteristics": {
+                                        "performance": ["Low latency", "99% uptime"],
+                                        "scalability": ["1M+ users", "Global reach"],
+                                        "latency": ["<50ms region", "<100ms cross-region"],
+                                        "security": ["TLS encryption", "DDoS protection"],
+                                        "compatibility": ["AWS CloudFront", "Akamai"]
+                                    }
+                                },
+                                {
+                                    "name": "Edge caching",
+                                    "characteristics": {
+                                        "performance": ["High hit rate", "Low retrieval time"],
+                                        "scalability": ["Dynamic scaling", "Multi-region support"],
+                                        "latency": ["<10ms fetch", "Edge optimized"],
+                                        "security": ["Token-based access", "Cache encryption"],
+                                        "compatibility": ["Cloudflare", "Fastly"]
+                                    }
+                                }
+                            ],
+                            "associated_tools": ["Akamai", "Cloudflare", "AWS CloudFront"],
+                            "standards_and_protocols": ["HLS", "DASH"],
+                            "deployment_models": ["Cloud", "Hybrid"]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
