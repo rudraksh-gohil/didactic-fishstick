@@ -13,7 +13,6 @@
                             "name": "Geo-location delivery",
                             "user_stories": [
                                 {
-                                    "quality": "Low Latency",
                                     "description": "As a user, I want videos to load instantly without buffering.",
                                     "quality": "High",
                                     "contextual_characteristics": {
@@ -25,7 +24,6 @@
                                     }
                                 },
                                 {
-                                    "quality": "High Availability",
                                     "description": "As a business, I want content to always be accessible, even during high traffic.",
                                     "quality": "High",
                                     "contextual_characteristics": {
